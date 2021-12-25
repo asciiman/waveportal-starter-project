@@ -1,19 +1,18 @@
 import * as React from "react";
-import { ethers } from "ethers";
 import './App.css';
 
 export default function App() {
 
   const wave = () => {
-    
+
   }
-  
+
   return (
     <div className="mainContainer">
 
       <div className="dataContainer">
         <div className="header">
-        👋 Hey there!
+        <span role="img" aria-label="Wave">👋</span> Hey there!
         </div>
 
         <div className="bio">
