@@ -5,7 +5,7 @@ const App = () => {
   /*
   * Just a state variable we use to store our user's public wallet.
   */
-  const [currentAccount, setCurrentAccount] = useState("");
+  const [_currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
     try {
