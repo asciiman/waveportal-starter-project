@@ -5,6 +5,7 @@ const App = () => {
   /*
   * Just a state variable we use to store our user's public wallet.
   */
+  // eslint-disable-next-line no-unused-vars
   const [_currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
