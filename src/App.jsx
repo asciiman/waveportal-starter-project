@@ -6,7 +6,7 @@ const App = () => {
   * Just a state variable we use to store our user's public wallet.
   */
   // eslint-disable-next-line no-unused-vars
-  const [_currentAccount, setCurrentAccount] = useState("");
+  const [currentAccount, setCurrentAccount] = useState("");
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -36,6 +36,27 @@ const App = () => {
     }
   }
 
+   /**
+    * Implement your connectWallet method here
+    */
+   const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        alert("Get MetaMask!");
+        return;
+      }
+
+      const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+
+      console.log("Connected", accounts[0]);
+      setCurrentAccount(accounts[0]);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   /*
   * This runs our function when the page loads.
   */
@@ -57,6 +78,15 @@ const App = () => {
         <button className="waveButton" onClick={null}>
           Wave at Me
         </button>
+
+        {/*
+        * If there is no currentAccount render this button
+        */}
+        {!currentAccount && (
+          <button className="waveButton" onClick={connectWallet}>
+            Connect Wallet
+          </button>
+        )}
       </div>
     </div>
   );
