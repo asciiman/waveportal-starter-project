@@ -117,7 +117,7 @@ const App = () => {
   */
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, [])
+  });
 
   return (
     <div className="mainContainer">
