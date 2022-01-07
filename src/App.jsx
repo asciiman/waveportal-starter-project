@@ -32,7 +32,6 @@ const App = () => {
         const account = accounts[0];
         console.log("Found an authorized account:", account);
         setCurrentAccount(account)
-        updateWaveCount();
       } else {
         console.log("No authorized account found")
       }
@@ -117,7 +116,8 @@ const App = () => {
   */
   useEffect(() => {
     checkIfWalletIsConnected();
-  });
+    updateWaveCount();
+  }, []);
 
   return (
     <div className="mainContainer">
